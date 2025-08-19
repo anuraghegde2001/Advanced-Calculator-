@@ -1,0 +1,27 @@
+{
+  "name": "advanced-calculator-db",
+  "version": "1.0.0",
+  "description": "Advanced calculator with database integration",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "setup-db": "mysql -u root -p < database/schema.sql",
+    "test": "jest",
+    "lint": "eslint backend/ frontend/"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql2": "^3.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "jest": "^29.6.2",
+    "eslint": "^8.45.0"
+  },
+  "keywords": ["calculator", "database", "express", "mysql", "javascript"],
+  "author": "Developer",
+  "license": "MIT"
+}

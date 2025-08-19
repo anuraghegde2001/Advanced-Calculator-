@@ -1,0 +1,253 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    max-width: 800px;
+    width: 100%;
+}
+
+.calculator {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    min-width: 320px;
+}
+
+.display-section {
+    margin-bottom: 20px;
+}
+
+.display {
+    width: 100%;
+    height: 80px;
+    font-size: 2rem;
+    text-align: right;
+    padding: 0 20px;
+    border: none;
+    background: #f8f9fa;
+    border-radius: 10px;
+    color: #333;
+    font-weight: 500;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.history-toggle {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.history-btn {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.history-btn:hover {
+    background: #545b62;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.btn {
+    height: 60px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.number {
+    background: #e9ecef;
+    color: #333;
+}
+
+.btn.number:hover {
+    background: #dee2e6;
+}
+
+.btn.operator {
+    background: #fd7e14;
+    color: white;
+}
+
+.btn.operator:hover {
+    background: #e8690b;
+}
+
+.btn.equals {
+    background: #28a745;
+    color: white;
+    grid-row: span 2;
+}
+
+.btn.equals:hover {
+    background: #218838;
+}
+
+.btn.zero {
+    grid-column: span 2;
+}
+
+/* History Panel Styles */
+.history-panel {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    width: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+    transition: all 0.3s ease;
+}
+
+.history-panel.hidden {
+    display: none;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+.history-header h3 {
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.clear-history-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+}
+
+.clear-history-btn:hover {
+    background: #c82333;
+}
+
+.history-list {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-left: 4px solid #007bff;
+}
+
+.history-item:hover {
+    background: #e9ecef;
+}
+
+.history-expression {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+.history-result {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.history-time {
+    font-size: 0.7rem;
+    color: #999;
+    margin-top: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .calculator {
+        min-width: 280px;
+    }
+    
+    .history-panel {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+
+/* Loading and Error States */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+}
